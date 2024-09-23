@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import HomePage from './components/Homepage';
+import Signup from './components/Signup';
+import Login from './components/Login';
+
+
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<HomePage/>
+  },
+  {
+    path:"/signup",
+    element:<Signup/>
+  },
+  {
+    path:"/login",
+    element:<Login/>
+  },
+
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload huu.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React hnik
-        </a>
-      </header>
-    </div>
+    <div className="p-4 h-screen flex items-center justify-center">
+    <RouterProvider router={router}/>
+  </div>
   );
 }
 
